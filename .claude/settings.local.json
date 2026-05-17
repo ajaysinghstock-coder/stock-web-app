@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:psiequityadvisory.com)",
+      "Bash(find \"/Users/devdatta/Desktop/stocks web\" -maxdepth 3 -iname \"*.pdf\" 2>/dev/null && find \"/Users/devdatta/Desktop\" -maxdepth 2 -iname \"*invest*\" 2>/dev/null)",
+      "Read(//Users/devdatta/Desktop/**)"
+    ]
+  }
+}
