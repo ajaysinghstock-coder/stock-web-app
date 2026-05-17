@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Complaint Data — InvestNITII</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/legal.css" />
+</head>
+<body class="dark">
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="../index.html" class="brand">
+        <span class="brand-mark">IN</span>
+        <span class="brand-text">InvestNITII</span>
+      </a>
+      <nav class="main-nav" aria-label="Main">
+        <ul>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#strategy">Strategy</a></li>
+          <li><a href="../index.html#compliance">Compliance</a></li>
+          <li><a href="../index.html#fees">Fees</a></li>
+          <li><a href="../index.html#team">Team</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="https://www.investnitii.in" target="_blank" rel="noopener" class="btn btn-ghost">www.investnitii.in</a>
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">Dark</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">SEBI Compliance</p>
+      <h1>Complaint Disclosure Data</h1>
+      <p class="hero-sub">
+        As required under SEBI Research Analyst Regulations, we publish complaint
+        data on a regular basis. All figures are updated directly from our records.
+      </p>
+    </div>
+  </section>
+
+  <!-- Sheet Data -->
+  <section class="legal" style="padding: 3rem 0 5rem;">
+    <div class="container">
+      <div class="sheet-ui">
+        <div class="sheet-tabs" id="sheetTabs"></div>
+        <div class="sheet-body" id="sheetBody">
+          <div class="sheet-loading">
+            <span class="spinner"></span> Loading complaint data…
+          </div>
+        </div>
+      </div>
+
+      <div class="disclaimer" style="margin-top: 2rem;">
+        <strong>Note:</strong> This data is published in compliance with SEBI
+        (Research Analysts) Regulations, 2014. Zero complaints indicates no
+        grievances have been filed against InvestNITII through any channel.
+        Data is refreshed regularly from our live records.
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand">
+          <span class="brand-mark">IN</span>
+          <span class="brand-text">InvestNITII</span>
+        </div>
+        <p class="footer-blurb">
+          SEBI Registered Research Analyst. Research-backed equity investing
+          grounded in quality, value, and an ownership mindset.
+        </p>
+      </div>
+      <div>
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#strategy">Strategy</a></li>
+          <li><a href="../index.html#compliance">Compliance</a></li>
+          <li><a href="../index.html#fees">Fees</a></li>
+          <li><a href="../index.html#team">Team</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="privacy-policy.html#terms">Terms &amp; Conditions</a></li>
+          <li><a href="privacy-policy.html#charter">Investor Charter</a></li>
+          <li><a href="privacy-policy.html#ra-disclosure">Disclosures</a></li>
+          <li><a href="complaint-data.html">Complaint Data</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Office</h5>
+        <ul>
+          <li>Ajay Singh (InvestNITII)</li>
+          <li>R-97/A, Street No. 12, Block-B</li>
+          <li>Kailashpuri, New Delhi - 110045</li>
+          <li><a href="https://www.investnitii.in" target="_blank" rel="noopener">www.investnitii.in</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <div class="container">
+        © 2026 InvestNITII. All rights reserved. SEBI RA INH000023454.
+        Investments in securities are subject to market risks.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="../js/sheets.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
