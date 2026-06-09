@@ -370,6 +370,11 @@ body.dark .site-header { background: rgba(14, 19, 32, 0.95); }
 }
 .pricing.pricing-single .plan.featured { transform: none; }
 .pricing.pricing-single .plan.featured:hover { transform: translateY(-4px); }
+.pricing.pricing-five {
+  grid-template-columns: repeat(5, 1fr);
+}
+.pricing.pricing-five .plan.featured { transform: none; }
+.pricing.pricing-five .plan.featured:hover { transform: translateY(-4px); }
 .fee-note {
   max-width: 620px;
   margin: 2rem auto 0;
@@ -427,10 +432,11 @@ body.dark .site-header { background: rgba(14, 19, 32, 0.95); }
   margin-bottom: 1.25rem;
   font-weight: 500;
 }
-.plan ul {
+.plan ul,
+.plan-features {
   list-style: none;
   padding: 0;
-  margin: 0 0 1.5rem;
+  margin: 0.75rem 0 1.5rem;
   flex: 1;
 }
 .plan li {
