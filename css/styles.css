@@ -422,9 +422,11 @@ body.dark .site-header { background: rgba(14, 19, 32, 0.95); }
   margin: 0.75rem 0 0.25rem;
 }
 .price span {
+  display: block;
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--text-muted);
+  margin-top: 0.25rem;
 }
 .plan-meta {
   font-size: 0.85rem;
