@@ -1,0 +1,6 @@
+# robots.txt for InvestNITII
+User-agent: *
+Allow: /
+
+# Block nothing important; expose the sitemap
+Sitemap: https://www.investnitii.in/sitemap.xml
