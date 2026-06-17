@@ -121,11 +121,16 @@ body.dark .site-header { background: rgba(14, 19, 32, 0.95); }
   font-weight: 700;
 }
 .brand-mark {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 38px;
   height: 38px;
+  background: var(--primary);
+  color: #fff;
   border-radius: 6px;
-  object-fit: cover;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
 }
 .brand-text { color: var(--text); font-size: 1.05rem; }
 
