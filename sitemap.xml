@@ -7,6 +7,27 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.investnitii.in/research/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       PUBLISHING A RESEARCH POST: copy the block below, paste it above
+       this comment, then set the slug and the date you published it.
+       Only list a post once its page holds the finished write-up.
+
+  <url>
+    <loc>https://www.investnitii.in/research/YOUR-SLUG-HERE/</loc>
+    <lastmod>YYYY-MM-DD</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+       ══════════════════════════════════════════════════════════════════ -->
+
+  <url>
     <loc>https://www.investnitii.in/pages/privacy-policy.html</loc>
     <lastmod>2026-06-06</lastmod>
     <changefreq>yearly</changefreq>
