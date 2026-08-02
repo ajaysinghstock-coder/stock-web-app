@@ -120,18 +120,6 @@ body.dark .site-header { background: rgba(14, 19, 32, 0.95); }
   gap: 0.5rem;
   font-weight: 700;
 }
-.brand-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  background: var(--primary);
-  color: #fff;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
-}
 .brand-logo {
   width: 38px;
   height: 38px;
@@ -598,10 +586,7 @@ body.dark .form-success { color: #2ecc71; }
   text-align: center;
 }
 
-/* ---------- Research / Google Sheets ---------- */
-.research { padding: 5rem 0; background: var(--bg); }
-.research h2 { text-align: center; }
-
+/* ---------- Google Sheets table (complaint data) ---------- */
 .sheet-ui {
   background: var(--card-bg);
   border: 1px solid var(--border);

@@ -1,3 +1,238 @@
+# The ChatGPT prompt
+
+This is the only thing you need to turn a research write-up into a live page.
+Everything ChatGPT needs — the rules, the page template, and the steps you'll
+follow afterwards — is inside the one box below.
+
+### How to use it
+
+1. Hover over the box below and click the **copy** icon in its top-right corner.
+2. Open ChatGPT and paste it.
+3. Before sending, scroll to **MY DETAILS** near the bottom of what you pasted
+   and fill in the six lines, then paste your write-up under
+   **MY RESEARCH WRITE-UP** (or attach the document and type "see attached file").
+4. Send. ChatGPT replies with three files and your step-by-step instructions.
+
+If you forget something, ChatGPT will ask you for it before writing anything.
+
+> **Check before you publish.** ChatGPT is told never to invent a number, but you
+> are the SEBI Registered Research Analyst — read the page it produces and make
+> sure every figure and claim is yours, and that the holdings line is correct.
+
+Full walk-through with screenshots of where each block goes:
+**[PUBLISHING.md](PUBLISHING.md)**
+
+---
+
+```text
+You are helping me publish a research post on my website, www.investnitii.in.
+I am NOT a developer. I will give you my research write-up. You will give me
+finished files to copy and paste, plus the exact steps to follow afterwards.
+
+════════════════════════════════════════════════════════════════════
+FIRST — CHECK YOU HAVE EVERYTHING
+════════════════════════════════════════════════════════════════════
+Before you generate anything, make sure you have all seven items below.
+If any is missing or unclear, ASK ME for it and STOP. Do not guess.
+
+  1. Title of the post
+  2. Folder name for the web address
+     (lower case, hyphens instead of spaces, letters/numbers/hyphens only.
+      If I did not give one, suggest one from the title and ask me to confirm.)
+  3. Category — exactly one of: Equity Research / Investment Note / Long-Term Idea
+  4. Sub-category shown under the title, e.g. "Defence · Small Cap"
+  5. Publication date in YYYY-MM-DD form
+  6. Whether I hold a position: "do hold" or "do not hold"
+  7. My research write-up (pasted below or attached as a file)
+  8. A Google Drive link to the full PDF report — OPTIONAL for a short post,
+     but if my write-up runs longer than about 2 pages (roughly 1,000 words)
+     you must ASK ME for it before you generate anything, because a long report
+     belongs on the page as a readable PDF as well as text.
+     The link must look like:
+       https://drive.google.com/file/d/FILE_ID/view?usp=sharing
+     If I give you a link in any other form, ask me to re-share the file with
+     "Anyone with the link — Viewer" and send it again. Never guess a FILE_ID.
+
+════════════════════════════════════════════════════════════════════
+RULES — FOLLOW EXACTLY
+════════════════════════════════════════════════════════════════════
+1.  Start from the template at the bottom of this message. Keep its structure,
+    all class names, all <link rel="stylesheet"> lines, the header and the
+    footer EXACTLY as they are. Change only what these rules say to change.
+
+2.  Use ONLY the content I provide. Do not invent, estimate, extrapolate or
+    "fill in" any figure, date, price target, ratio or fact — not even an
+    obvious-looking one. If something needed is missing, put the visible
+    marker [TO BE FILLED] there and list it for me at the end.
+    This is a SEBI-regulated site. A made-up number is a serious problem.
+
+3.  In the <head>, replace with my details:
+      - <title>  →  "My title — InvestNITII Research"
+      - <meta name="description">  →  my summary, 1-2 sentences, under 160 characters
+      - <link rel="canonical">  →  must end with /research/MY-FOLDER-NAME/
+      - every og: and twitter: tag (title, description, url)
+      - article:published_time and article:section
+      - inside the JSON-LD block: headline, description, datePublished,
+        dateModified, articleSection, and BOTH URLs that contain the folder name
+    Every URL you write must end with my exact folder name.
+
+4.  DELETE the two-line comment starting "DRAFT:" and the line
+    <meta name="robots" content="noindex, follow" /> underneath it.
+
+5.  DELETE the comment "DELETE THIS BANNER..." and the whole
+    <p class="draft-banner"> ... </p> paragraph.
+
+6.  In the visible page, replace: the breadcrumb's last <span>, the
+    <span class="insight-tag">, the <h1>, the <time> tag (BOTH the datetime="..."
+    attribute and the text a reader sees), the "Category · Sub-category" text,
+    and <p class="research-lead"> (use the same summary as the meta description).
+
+7.  Replace every <p class="placeholder">...</p> with my real content, and remove
+    the class="placeholder" part. Change the <h2> headings to match my actual
+    sections — add or delete sections as my write-up requires. Format using only:
+      <h2> section heading      <h3> sub-heading
+      <p> paragraph             <ul><li> bullets
+      <strong> for emphasis     <blockquote> for a pulled-out line
+      tables as: <div class="table-scroll"><table>...</table></div>
+    Do not add inline styles, <div>s, JavaScript, or classes that are not
+    already used in the template.
+
+8.  Fill <aside class="key-points"> with 3 to 5 real takeaways drawn from my
+    content. Delete the "Placeholder —" lines.
+
+9.  Delete the big comment block that starts "Handy blocks to copy while writing".
+
+10. In the Disclosures section change ONLY this: replace <em>[do / do not]</em>
+    with the wording I gave you ("do" or "do not"), and remove the
+    "EDIT: state the actual position" comment. Leave every other sentence in
+    that section word for word as it is. Do not reword the disclaimer.
+
+11. IF MY WRITE-UP IS LONGER THAN ABOUT 2 PAGES (roughly 1,000 words):
+    a. Add "<h2>Executive summary</h2>" as the FIRST section, directly under the
+       Key takeaways box, followed by 5 to 8 sentences (or short bullets) that
+       cover the thesis, the evidence and the conclusion. Draw every word from
+       my write-up — do not add anything that is not in it.
+    b. If I gave you a Google Drive link, put the report embed straight after the
+       Executive summary, using this exact markup with FILE_ID replaced in BOTH
+       places by the id from my link (the part between /d/ and /view):
+
+       <div class="report-embed">
+         <iframe src="https://drive.google.com/file/d/FILE_ID/preview"
+                 title="Full research report" loading="lazy"></iframe>
+       </div>
+       <p class="report-actions">
+         <a class="btn btn-outline" target="_blank" rel="noopener"
+            href="https://drive.google.com/file/d/FILE_ID/view">Open the full report (PDF)</a>
+         <span class="report-note">Opens in Google Drive.</span>
+       </p>
+
+    c. Still write the full text of the post below it. The PDF is in addition to
+       the write-up, never a replacement for it.
+    If my write-up is 2 pages or shorter, skip all of rule 11 — no Executive
+    summary, no embed — unless I explicitly gave you a Drive link anyway, in
+    which case include only the embed block.
+
+12. Keep the whole file as one plain HTML file. No frameworks, no markdown.
+
+13. FILE 1 must contain the site header EXACTLY ONCE and the site footer EXACTLY
+    ONCE. Never repeat the <header class="site-header"> block or the
+    <footer class="site-footer"> block, and never append a second copy of the
+    page. Before you answer, count them: one <header class="site-header">, one
+    <footer class="site-footer">, one </body>, one </html>. If your draft has
+    two of any of these, delete the extra one before showing me the file.
+
+════════════════════════════════════════════════════════════════════
+WHAT TO GIVE ME BACK — in this order, each in its own code block
+════════════════════════════════════════════════════════════════════
+
+FILE 1 — the complete HTML file, from <!DOCTYPE html> to </html>.
+
+FILE 2 — the card, exactly this shape with my details filled in:
+
+<article class="insight-card">
+  <span class="insight-tag">MY CATEGORY</span>
+  <h3><a class="insight-card__link" href="/research/MY-FOLDER-NAME/">MY TITLE</a></h3>
+  <p>My summary in one sentence, 25 words maximum.</p>
+  <span class="insight-meta">MY SUB-CATEGORY</span>
+  <span class="insight-card__more">READ-LABEL</span>
+</article>
+
+where READ-LABEL is "Read the report" for Equity Research,
+"Read the note" for Investment Note, "Read the idea" for Long-Term Idea.
+
+FILE 3 — the sitemap entry:
+
+<url>
+  <loc>https://www.investnitii.in/research/MY-FOLDER-NAME/</loc>
+  <lastmod>MY-DATE</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+THEN — write out my steps, with my real folder name already filled in, in
+exactly this form (replace the CAPITALS, and pick the correct tab id in step 3
+from my category: Equity Research → tab-reports, Investment Note → tab-notes,
+Long-Term Idea → tab-ideas):
+
+  YOUR STEPS — do these on github.com/ajaysinghstock-coder/stock-web-app
+
+  1. Click "Add file" → "Create new file".
+     In the file name box type exactly:
+         research/MY-FOLDER-NAME/index.html
+     The big box must be COMPLETELY EMPTY before you paste — this is a brand
+     new file, so never paste FILE 1 into a page that already has content,
+     or the header and footer will appear twice.
+     Paste FILE 1. Click "Commit changes".
+
+  2. Open index.html and click the pencil icon.
+     Press Ctrl+F and search for:  id="TAB-ID"
+     Directly under it is a line:  <div class="insights-grid">
+     Paste FILE 2 on a new line straight after that line.
+     Paste ONLY the card block — never FILE 1 here, it would duplicate the
+     whole page including the footer.
+     Click "Commit changes".
+
+  3. Open research/index.html and click the pencil icon.
+     Press Ctrl+F and search for:  <div class="insights-grid">
+     Paste FILE 2 on a new line straight after it.
+     Click "Commit changes".
+
+  4. Open sitemap.xml and click the pencil icon.
+     Paste FILE 3 just above the line that starts:  <!-- ═════
+     Click "Commit changes".
+
+  5. Open the "Actions" tab and wait for the green tick (about 2 minutes),
+     then check your post is live at:
+         https://www.investnitii.in/research/MY-FOLDER-NAME/
+     and that the card shows on https://www.investnitii.in and opens the post.
+
+FINALLY — list anything you marked [TO BE FILLED], and confirm in one line that
+you did not add any number or fact that was not in my write-up. If you used a
+Drive embed, remind me in one line to check the file is shared as "Anyone with
+the link — Viewer", or the embed will show an access-denied box to visitors. If there is
+nothing to report, say "Nothing invented, nothing missing."
+
+════════════════════════════════════════════════════════════════════
+MY DETAILS
+════════════════════════════════════════════════════════════════════
+Title:
+Folder name (web address):
+Category (Equity Research / Investment Note / Long-Term Idea):
+Sub-category:
+Publication date (YYYY-MM-DD):
+Do I hold a position in this security? (do hold / do not hold):
+Google Drive link to the full PDF (leave blank if there isn't one):
+
+════════════════════════════════════════════════════════════════════
+MY RESEARCH WRITE-UP
+════════════════════════════════════════════════════════════════════
+(paste it here, or attach the document and write "see attached file")
+
+
+
+════════════════════════════════════════════════════════════════════
+THE TEMPLATE — start from this
+════════════════════════════════════════════════════════════════════
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -305,3 +540,11 @@
   <script src="/js/main.js"></script>
 </body>
 </html>
+
+```
+
+---
+
+<sub>Maintenance note (developer): the template at the bottom of the prompt is a
+copy of `research/_TEMPLATE/index.html`. If you change that file, regenerate this
+one so the two stay in step.</sub>

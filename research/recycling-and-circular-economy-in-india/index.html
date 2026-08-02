@@ -166,6 +166,20 @@
 
         <!-- Handy blocks to copy while writing:
 
+             Full report from Google Drive — only when a shareable link exists.
+             Replace FILE_ID in BOTH places with the id from the share link:
+             https://drive.google.com/file/d/FILE_ID/view?usp=sharing
+
+             <div class="report-embed">
+               <iframe src="https://drive.google.com/file/d/FILE_ID/preview"
+                       title="Full research report" loading="lazy"></iframe>
+             </div>
+             <p class="report-actions">
+               <a class="btn btn-outline" target="_blank" rel="noopener"
+                  href="https://drive.google.com/file/d/FILE_ID/view">Open the full report (PDF)</a>
+               <span class="report-note">Opens in Google Drive.</span>
+             </p>
+
              <h3>A sub-heading</h3>
              <ul><li>A bullet</li></ul>
              <blockquote>A pulled-out quote or key number.</blockquote>
