@@ -1,0 +1,204 @@
+/* ==========================================================================
+   Logo badge — reusable wrapper for the InvestNITII mark
+   --------------------------------------------------------------------------
+   Drop it in anywhere (fix the img path for the page's depth):
+
+     <span class="logo-badge">
+       <img class="logo-badge__img" src="assets/InvestNITII.png"
+            alt="InvestNITII logo" width="38" height="38" decoding="async" />
+     </span>
+
+   …or skip the path juggling entirely — --auto paints the mark from this
+   stylesheet, so the same snippet works from any folder:
+
+     <span class="logo-badge logo-badge--auto" role="img"
+           aria-label="InvestNITII logo"></span>
+
+   (Use the <img> version for the header / footer brand, where the logo is
+   worth having in the markup for SEO; --auto for everything else.)
+
+   On hover / keyboard focus the badge lifts and a magnified, readable copy
+   of the logo pops out beside it — the fine print (tagline, SEBI reg. no.)
+   is legible without leaving the page.
+
+   Size      .logo-badge--xs | --sm | (default 38px) | --md | --lg | --xl
+             or per instance: style="--logo-size: 64px"
+   Shape     .logo-badge--round   circular badge
+             .logo-badge--flat    drops the badge surface + ring (the PNG
+                                  keeps its own off-white background)
+   Magnifier .logo-badge--up      pop above instead of below (use in footers)
+             .logo-badge--center  centre the panel on the badge
+             .logo-badge--right   align the panel's right edge to the badge
+             .logo-badge--static  no magnifier at all
+             or per instance: style="--logo-preview-size: 320px"
+   ========================================================================== */
+
+.logo-badge {
+  /* tokens — override with a modifier class or an inline style */
+  --logo-size: 38px;
+  --logo-radius: 9px;
+  --logo-lift: -2px;
+  --logo-preview-size: clamp(190px, 52vw, 268px);
+  --logo-preview-gap: 14px;
+  --logo-surface: #ffffff;
+  --logo-ring: rgba(10, 30, 60, 0.12);
+  --logo-ring-active: var(--primary, #0a4d8c);
+  --logo-shadow: 0 8px 22px rgba(10, 30, 60, 0.18);
+  --logo-shadow-lg: 0 18px 44px rgba(10, 30, 60, 0.26);
+  --logo-ease: cubic-bezier(0.2, 0.8, 0.25, 1);
+
+  position: relative;
+  z-index: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: var(--logo-size);
+  height: var(--logo-size);
+  vertical-align: middle;
+  /* stay above neighbouring content until the panel has finished fading out */
+  transition: z-index 0s linear 0.3s;
+}
+
+.logo-badge__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: var(--logo-radius);
+  background: var(--logo-surface);
+  box-shadow: inset 0 0 0 1px var(--logo-ring);
+  transition: transform 0.3s var(--logo-ease), box-shadow 0.3s var(--logo-ease);
+}
+
+/* ---------- The magnifier ----------
+   The image comes from CSS (path is relative to this file), so the same
+   markup works from any folder depth. */
+.logo-badge::after {
+  content: "";
+  position: absolute;
+  top: calc(100% + var(--logo-preview-gap));
+  left: var(--logo-pop-left, -6px);
+  width: var(--logo-preview-size);
+  aspect-ratio: 1060 / 992;
+  border-radius: 14px;
+  background: var(--logo-surface) url("../assets/InvestNITII.png") center / contain no-repeat;
+  box-shadow: 0 0 0 1px var(--logo-ring), var(--logo-shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  translate: var(--logo-pop-x, 0) -8px;
+  scale: 0.94;
+  transform-origin: top left;
+  pointer-events: none;
+  transition: opacity 0.22s ease, translate 0.28s var(--logo-ease),
+              scale 0.28s var(--logo-ease), visibility 0s linear 0.28s;
+}
+
+/* Reveal: pointer hover, and keyboard focus on the badge or its link/button */
+@media (hover: hover) and (pointer: fine) {
+  .logo-badge:hover { z-index: 40; transition-delay: 0s; }
+  .logo-badge:hover .logo-badge__img {
+    transform: translateY(var(--logo-lift)) scale(1.06);
+    box-shadow: inset 0 0 0 1px var(--logo-ring-active), var(--logo-shadow);
+  }
+  .logo-badge:hover::after {
+    opacity: 1;
+    visibility: visible;
+    translate: var(--logo-pop-x, 0) 0;
+    scale: 1;
+    transition-delay: 0s;
+  }
+}
+
+.logo-badge:focus-visible,
+.logo-badge:focus-within,
+a:focus-visible > .logo-badge,
+button:focus-visible > .logo-badge,
+.logo-badge.is-open {
+  z-index: 40;
+  transition-delay: 0s;
+}
+.logo-badge:focus-visible .logo-badge__img,
+.logo-badge:focus-within .logo-badge__img,
+a:focus-visible > .logo-badge .logo-badge__img,
+button:focus-visible > .logo-badge .logo-badge__img,
+.logo-badge.is-open .logo-badge__img {
+  transform: translateY(var(--logo-lift)) scale(1.06);
+  box-shadow: inset 0 0 0 1px var(--logo-ring-active), var(--logo-shadow);
+}
+.logo-badge:focus-visible::after,
+.logo-badge:focus-within::after,
+a:focus-visible > .logo-badge::after,
+button:focus-visible > .logo-badge::after,
+.logo-badge.is-open::after {
+  opacity: 1;
+  visibility: visible;
+  translate: var(--logo-pop-x, 0) 0;
+  scale: 1;
+  transition-delay: 0s;
+}
+
+/* ---------- Magnifier placement ---------- */
+.logo-badge--up::after {
+  top: auto;
+  bottom: calc(100% + var(--logo-preview-gap));
+  transform-origin: bottom left;
+  translate: var(--logo-pop-x, 0) 8px;
+}
+.logo-badge--center { --logo-pop-x: -50%; --logo-pop-left: 50%; }
+.logo-badge--center::after { transform-origin: top center; }
+.logo-badge--center.logo-badge--up::after { transform-origin: bottom center; }
+.logo-badge--right { --logo-pop-x: -100%; --logo-pop-left: calc(100% + 6px); }
+.logo-badge--right::after { transform-origin: top right; }
+.logo-badge--right.logo-badge--up::after { transform-origin: bottom right; }
+
+/* ---------- Sizes & shapes ---------- */
+.logo-badge--xs { --logo-size: 24px; --logo-radius: 6px; }
+.logo-badge--sm { --logo-size: 30px; --logo-radius: 7px; }
+.logo-badge--md { --logo-size: 48px; --logo-radius: 11px; }
+.logo-badge--lg { --logo-size: 72px; --logo-radius: 16px; }
+.logo-badge--xl { --logo-size: 112px; --logo-radius: 22px; }
+.logo-badge--round { --logo-radius: 999px; }
+.logo-badge--flat { --logo-surface: transparent; --logo-ring: transparent; }
+
+/* Image-less badge: the mark is painted from this file, so no per-page path.
+   No transform on hover here — it would drag the magnifier panel with it. */
+.logo-badge--auto {
+  border-radius: var(--logo-radius);
+  background: var(--logo-surface) url("../assets/InvestNITII.png") center / contain no-repeat;
+  box-shadow: inset 0 0 0 1px var(--logo-ring);
+  transition: box-shadow 0.3s var(--logo-ease), z-index 0s linear 0.3s;
+}
+@media (hover: hover) and (pointer: fine) {
+  .logo-badge--auto:hover { box-shadow: inset 0 0 0 1px var(--logo-ring-active), var(--logo-shadow); }
+}
+.logo-badge--auto:focus-visible,
+.logo-badge--auto.is-open {
+  box-shadow: inset 0 0 0 1px var(--logo-ring-active), var(--logo-shadow);
+}
+
+/* ---------- Opt out of the magnifier ---------- */
+.logo-badge--static::after { content: none; }
+.logo-badge--static .logo-badge__img { transform: none; }
+
+/* Touch / coarse pointers: keep the badge, skip the pop-out panel */
+@media (hover: none) {
+  .logo-badge::after { content: none; }
+}
+
+/* ---------- Dark theme ---------- */
+body.dark .logo-badge {
+  --logo-ring: rgba(255, 255, 255, 0.16);
+  --logo-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+  --logo-shadow-lg: 0 18px 44px rgba(0, 0, 0, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-badge,
+  .logo-badge__img,
+  .logo-badge::after {
+    transition-duration: 0.01ms;
+    transition-delay: 0s;
+  }
+  .logo-badge::after { scale: 1; translate: var(--logo-pop-x, 0) 0; }
+  .logo-badge:hover .logo-badge__img { transform: none; }
+}
