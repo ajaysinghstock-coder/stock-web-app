@@ -7,9 +7,9 @@ Every post lives in its own folder inside `research/`. The folder name becomes
 the web address:
 
 ```
-research/gravita-india-deep-dive/index.html
-        └─────────┬─────────┘
-   https://www.investnitii.in/research/gravita-india-deep-dive/
+research/veerhealth-care-initiating-coverage/index.html
+        └───────────────┬────────────────┘
+   https://www.investnitii.in/research/veerhealth-care-initiating-coverage/
 ```
 
 ---

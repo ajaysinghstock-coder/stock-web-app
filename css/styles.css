@@ -242,7 +242,7 @@ body.dark .site-header { background: rgba(14, 19, 32, 0.95); }
   max-width: 620px;
   margin: 0 auto 3rem;
 }
-.services h2, .fees h2, .compliance h2, .team h2 { text-align: center; }
+.services h2, .fees h2, .compliance h2, .team h2, .insights h2 { text-align: center; }
 .eyebrow.center { display: block; text-align: center; margin: 0 auto 1rem; width: fit-content; }
 
 .cards {
